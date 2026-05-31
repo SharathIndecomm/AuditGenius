@@ -1,0 +1,10 @@
+# Generated output files
+daily_project_tracker.xlsx
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+.env
+venv/
+.venv/
