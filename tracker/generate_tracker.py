@@ -96,13 +96,6 @@ def _freeze_and_filter(ws, filter_ref=None):
         ws.auto_filter.ref = filter_ref
 
 
-def _add_cf_status(ws, col_letter, data_rows, value, fill_colour):
-    """Add conditional formatting rule for a specific status value in a column."""
-    fill = PatternFill("solid", fgColor=fill_colour)
-    ws.conditional_formatting.add(
-        f"A2:{get_column_letter(ws.max_column or 20)}{data_rows + 1}",
-        CellIsRule(operator="equal", formula=[f'"{value}"'], fill=fill)
-    )
 
 
 # ---------------------------------------------------------------------------
@@ -233,7 +226,6 @@ def create_sprint_tracker(wb):
 
     # Conditional formatting on Status column (F)
     num_rows = len(data) + 1
-    data_range = f"A2:P{num_rows + 1}"
 
     red_fill = PatternFill("solid", fgColor=RED_FILL)
     green_fill = PatternFill("solid", fgColor=GREEN_FILL)
